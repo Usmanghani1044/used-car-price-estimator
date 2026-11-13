@@ -29,4 +29,3 @@ The mirror has 8,128 rows. Only the following fields were retained:
 
 Rows missing required values or with invalid year, negative distance, nonpositive engine or price were discarded. Exact duplicate rows across these four selected columns were removed, leaving **6,559 rows**. Different source listings with identical selected values collapse to one row; no independent vehicle identifiers are available in this derived table. No fabricated, resampled or synthetic rows were added. The date range is 1994–2020; new model years are not observed training examples.
 
-The original 30-row USD course dataset is preserved unchanged in `data/original_course_data_usd.csv` and excluded from training. Its external source and license were not supplied with the original project.

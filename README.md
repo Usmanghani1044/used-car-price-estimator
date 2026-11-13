@@ -25,7 +25,6 @@ On Windows PowerShell, replace the first two commands with `py -m venv .venv` an
 - Removed hard training-range limits on manufacturing year, mileage and engine size. Out-of-range inputs produce a warning and an estimate, not a range rejection.
 - Basic validity checks remain: finite numbers, whole manufacturing year from 1886 through the current year, mileage at least zero, and engine size greater than zero. No dataset-based upper mileage or engine limit is imposed.
 - Replaced the 30-row active CSV with **6,559 cleaned unique four-column records** from the public CarDekho v3 dataset. No synthetic observations were generated.
-- Preserved the original 30 rows separately in `data/original_course_data_usd.csv`. They are not mixed into training because the original report labels their prices in USD.
 - Prices are now **Indian rupees (INR), not USD or Pakistani rupees (PKR)**. No currency conversion was applied.
 - Uses Linear Regression on log(price), transformed back with exp, to avoid negative predictions without clipping them to an invented minimum. This changes the original model and its outputs.
 - Keeps the four classes, repeated-prediction menu, optional charts, CSV history and file-error handling.
@@ -66,7 +65,6 @@ The previous USD dataset's R² of 0.95 is not comparable to this different datas
 - `main.py`: menu, inputs and prediction logging.
 - `car_predictor.py`: car validation, data preparation, model and charts.
 - `car_data.csv`: active cleaned INR dataset.
-- `data/original_course_data_usd.csv`: original dataset backup, not active.
 - `DATA_SOURCE.md`: attribution and data preparation details.
 - `requirements.txt`: direct dependency versions matching the previous Mac setup.
 - `tests/test_project.py`: automated checks.
